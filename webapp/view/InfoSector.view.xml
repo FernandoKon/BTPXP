@@ -1,0 +1,126 @@
+<mvc:View controllerName="com.lab2dev.btpexperience.controller.InfoSector"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns:main="sap.ui.webc.main"
+    xmlns="sap.m"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.f"
+    height="100%"
+    >
+    <Page id="Eventos" showHeader="false" class= "sapUiResponsivePadding ">
+
+        <IconTabBar
+			id="iconTabBar"
+            select="onTabSelect"
+            class="sapUiResponsiveContentPadding sapUiNoContentPadding"
+            applyContentPadding="false"
+            >
+			<layoutData>
+				<OverflowToolbarLayoutData priority="NeverOverflow" shrinkable="true"/>
+			</layoutData>
+            <items>
+                <IconTabFilter key="Informacoes" text="Informações"/>
+                <IconTabFilter key="Tarefas" text="Tarefas"/>
+                <IconTabFilter key="Trilhas" text="Trilhas"/>
+            </items>
+		</IconTabBar>
+
+        <HeaderContainer class="sapUiMediumMarginBegin sapUiResponsivePadding sapUiContentPadding">
+            <VBox>
+                <Title text="Evento " class="sapUiTinyMarginTopBottom textBold" titleStyle="H3"/>
+                <Title text="Informações > Visitor Guide > Setor {sector>/Name}" titleStyle="H4"/>
+            </VBox>
+        </HeaderContainer>
+
+        <Panel width="auto" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding sapUiResponsivePadding sapUiTinyMarginBeginEnd">
+            <main:Card>
+                <HBox justifyContent="SpaceBetween">
+                    <FlexBox>
+                        <Avatar src="{sector>/Logo}" displaySize="L" class="sapUiSmallMargin"/>
+                        <form:SimpleForm width="200px">
+                            <form:content>
+                                <core:Title text="Setor {sector>/Name}"/>
+                                <HBox >
+                                    <core:Icon src="sap-icon://meeting-room" class="sapUiTinyMarginEnd"/>
+                                    <Label text="Quantidade de salas" wrapping="true"/>
+                                </HBox>
+                                <Text text="{sector>/QRooms}" wrapping="true"/>
+                                <HBox>
+                                    <core:Icon src="sap-icon://customer-and-supplier" class="sapUiTinyMarginEnd"/>
+                                    <Label text="Andar" wrapping="true"/>
+                                </HBox>
+                                <ObjectAttribute text="{
+                                    path: 'sector>/Floor', 
+                                    formatter: '.formatter.getFloorText'
+                                    }"/>
+                            </form:content>
+                        </form:SimpleForm>
+                    
+                        <form:SimpleForm width="375px">
+                            <form:content>
+                                <core:Title text="Descrição"/>
+                                <Text text="{sector>/Description} " wrapping="true"/>
+                            </form:content>
+                        </form:SimpleForm>
+                    </FlexBox>
+                    <Button type="Emphasized" text="Editar Dados" class="sapUiSmallMargin" press="onOpenDialog"/>
+                </HBox>
+            </main:Card>
+        </Panel>
+
+        <content>
+            <VBox class="sapUiResponsiveContentPadding sapUiResponsivePadding sapUiTinyMarginBeginEnd">
+                <Title text="Salas desse setor" titleStyle="H4" class="sapUiMediumMarginBegin"/>
+                <Panel width="auto" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding sapUiContentPadding">
+                    <f:GridList
+                        id="gridList"
+                        items="{sector>/Rooms}">
+                        <f:customLayout>
+                            <grid:GridResponsiveLayout layoutChange="onLayoutChange">
+                                <grid:layoutS>
+                                    <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 8rem)" gridTemplateRows="repeat(auto-fit, 200px)" gridGap="0.25rem 0.25rem" />
+                                </grid:layoutS>
+                                <grid:layoutM>
+                                    <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 12rem)" gridTemplateRows="repeat(auto-fit, 185px)" gridGap="0.5rem 0.5rem" />
+                                </grid:layoutM>
+                                <grid:layoutL>
+                                    <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 16rem)" gridTemplateRows="repeat(auto-fit, 165px)" gridGap="0.75rem 0.75rem" />
+                                </grid:layoutL>
+                                <grid:layoutXL>
+                                    <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 18rem)" gridTemplateRows="repeat(auto-fit, 170px)" gridGap="1rem 1rem" />
+                                </grid:layoutXL>
+                            </grid:GridResponsiveLayout>
+                        </f:customLayout>
+                        <f:GridListItem>
+                            <VBox>
+                                <layoutData>
+                                    <FlexItemData growFactor="1" shrinkFactor="0" /> 
+                                </layoutData>
+                                <Image src="{sector>Background}" width="100%" height="80px"/>
+                                <Title text="Sala {sector>NameRoom}" wrapping="true" class="sapUiTinyMargin"/>
+                                <HBox class="sapUiTinyMarginBegin">
+                                    <core:Icon src="sap-icon://family-care" class="sapUiTinyMarginEnd"/>
+                                    <Label text="Setor {sector>SectorName}" wrapping="true" />
+                                </HBox>
+                                <HBox class="sapUiTinyMarginBegin">
+                                    <core:Icon src="sap-icon://map-3" class="sapUiTinyMarginEnd" />
+                                    <Label  text="Capacidade: {sector>Capacity} pessoas" wrapping="true" />
+                                </HBox>
+                            </VBox>
+                        </f:GridListItem>
+                    </f:GridList>
+                </Panel>
+            </VBox> 
+        </content>
+
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="Adicionar Sala" type="Emphasized" press="onOpenAddRoomDialog"/>
+            </OverflowToolbar>
+        </footer>
+        
+    </Page>
+</mvc:View>

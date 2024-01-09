@@ -58,7 +58,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.120.4",
       "libs": {
@@ -114,9 +114,23 @@
       "routes": [
         {
           "name": "RouteHome",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": [
             "TargetHome"
+          ]
+        },
+        {
+          "name": "InfoSector",
+          "pattern": "InfoSector",
+          "target": [
+            "TargetInfoSector"
+          ]
+        },
+        {
+          "name": "Rooms",
+          "pattern": "Rooms",
+          "target": [
+            "TargetRooms"
           ]
         }
       ],
@@ -127,6 +141,20 @@
           "clearControlAggregation": false,
           "viewId": "Home",
           "viewName": "Home"
+        },
+        "TargetInfoSector": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "InfoSector",
+          "viewName": "InfoSector"
+        },
+        "TargetRooms": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Rooms",
+          "viewName": "Rooms"
         }
       }
     },

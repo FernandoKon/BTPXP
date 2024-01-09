@@ -1,0 +1,37 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
+	<Dialog
+		id="editDataDialog"
+        contentWidth="474px"
+        showHeader="false"
+        title="Editar Dados do Setor"
+        >
+		<content>
+            <VBox >
+                <Title text="Editar Dados do Setor" class="sapUiSmallMarginBegin sapUiSmallMarginTop"/>
+                <f:SimpleForm editable="true" layout="ColumnLayout" >
+                <f:content>
+                    <Label text="Quantidade de salas" required="true" />
+                    <Input id="inputRoom" placeholder="Ex: 3"/>
+                    <Label text="Andar" required="true" />
+                    <Input id="inputFloor" placeholder="Ex: 1"/>
+                    <Label text="Descrição" required="true" />
+                    <TextArea id="inputDescription" placeholder="Ex: Aqui possui um texto descritivo do setor" />
+                </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+
+        <Toolbar style="Clear" class="sapUiTinyMarginEnd sapUiTinyMarginBottom">
+            <content>
+            <ToolbarSpacer />
+            <Button text="Salvar Alterações" press="editData" type="Emphasized" />
+            <Button text="Cancelar" press="onCloseDialog" type="Ghost" />
+            </content>
+        </Toolbar>
+        
+	</Dialog>
+</core:FragmentDefinition>

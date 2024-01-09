@@ -1,0 +1,69 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    height="100%"
+    xmlns:main="sap.ui.webc.main"
+    >
+	<Dialog
+		id="addRoomDialog"
+        contentWidth="auto"
+        title="Dados da Sala"
+        showHeader="false"
+        class="sapUiResponsivePadding"
+        
+        >
+		<content>
+            <VBox>
+                <Title text="Dados da Sala" class="sapUiSmallMarginBegin sapUiSmallMarginTop"/>
+                <HBox justifyContent="SpaceBetween">
+                    <VBox class="sapUiSmallMargin">
+                        <Label text="Nome" required="true" />
+                        <Input id="inputNewNameRoom" placeholder="Ex: Ronaldo" width="300px"/>
+                    </VBox>
+                    <VBox class="sapUiSmallMargin">
+                        <Label text="Setor" required="true" />
+                        <ComboBox
+                            placeholder="Ex: Rosa"
+                            id="inputNewNameSector"
+                            width="300px"
+                            items="">
+                            <core:Item key="" text="" />
+                        </ComboBox>
+                    </VBox>
+                </HBox>
+                <HBox justifyContent="SpaceBetween">
+                    <VBox class="sapUiSmallMargin">
+                        <Label text="Capacidade" required="true" />
+                        <Input id="inputNewCapacity" placeholder="Ex: 50" width="300px"/>
+                    </VBox>
+                    <VBox class="sapUiSmallMargin">
+                        <Label text="Logo (imagem)" required="true"/>
+                        <u:FileUploader placeholder="Clique e escolha um arquivo de imagem" width="300px"/>
+                    </VBox>
+                </HBox>
+                <VBox class="sapUiSmallMargin">
+                    <Label text="Descrição" required="true" />
+                    <TextArea id="inputNewDescription" placeholder="Texto" width="643px"/>
+                </VBox>
+                <VBox class="sapUiSmallMargin">
+                    <Label text="Curiosidade sobre o nome" required="true" />
+                    <TextArea id="inputNewCuriosity" placeholder="Texto" width="643px"/>
+                </VBox>
+            </VBox>
+        </content>
+
+        
+        <Toolbar style="Clear" class="sapUiTinyMarginEnd sapUiTinyMarginBottom">
+            <content>
+            <ToolbarSpacer />
+            <Button text="Cadastrar Sala" press="addRoom" type="Emphasized" />
+            <Button text="Cancelar" press="onCloseDialog" type="Ghost" />
+            </content>
+        </Toolbar>
+        
+	</Dialog>
+</core:FragmentDefinition>

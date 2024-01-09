@@ -1,0 +1,46 @@
+
+{
+    "Name": "Rosa",
+    "QRooms" : "3",
+    "Floor": "3",
+    "Description" : "Setor no primeiro andar, com três salas, dois banheiros, e elevadores que se encontram ao lado do prédio ",
+    "Logo" : "../assets/rosa.png",
+    "Rooms" : [
+        {
+            "SectorName" : "Rosa",
+            "NameRoom" : "Ronaldo",
+            "Capacity" : "50 ",
+            "Background": "../assets/Ronaldo.png"
+        },
+        {
+            "SectorName" : "Rosa",
+            "NameRoom" : "Cafu",
+            "Capacity" : "50 ",
+            "Background": "../assets/Cafu.png"
+        },
+        {
+            "SectorName" : "Rosa",
+            "NameRoom" : "Romário",
+            "Capacity" : "50 ",
+            "Background": "../assets/Romario.png"
+        },
+        {
+            "SectorName" : "Rosa",
+            "NameRoom" : "Ronaldo",
+            "Capacity" : "50 ",
+            "Background": "../assets/Ronaldo.png"
+        },
+        {
+            "SectorName" : "Rosa",
+            "NameRoom" : "Cafu",
+            "Capacity" : "50 ",
+            "Background": "../assets/Cafu.png"
+        },
+        {
+            "SectorName" : "Rosa",
+            "NameRoom" : "Romário",
+            "Capacity" : "50 ",
+            "Background": "../assets/Romario.png"
+        }
+    ]
+}

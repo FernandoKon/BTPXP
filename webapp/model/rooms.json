@@ -1,0 +1,68 @@
+[
+    {
+        "SectorName" : "Rosa",
+        "NameRoom" : "Ronaldo",
+        "Capacity" : "50 ",
+        "Background": "../assets/Ronaldo.png"
+    },
+    {
+        "SectorName" : "Amarelo",
+        "NameRoom" : "Ronaldinho",
+        "Capacity" : "50 ",
+        "Background": "../assets/Cafu.png"
+    },
+    {
+        "SectorName" : "Rosa",
+        "NameRoom" : "Ronaldo",
+        "Capacity" : "50 ",
+        "Background": "../assets/Ronaldo.png"
+    },
+    {
+        "SectorName" : "Roxo",
+        "NameRoom" : "Roberto Carlos",
+        "Capacity" : "40 ",
+        "Background": "../assets/Cafu.png"
+    },
+    {
+        "SectorName" : "Verde",
+        "NameRoom" : "Denilson",
+        "Capacity" : "30 ",
+        "Background": "../assets/Ronaldo.png"
+    },
+    {
+        "SectorName" : "Preto",
+        "NameRoom" : "Pelé",
+        "Capacity" : "50 ",
+        "Background": "../assets/Cafu.png"
+    },
+    {
+        "SectorName" : "Rosa",
+        "NameRoom" : "Ronaldo",
+        "Capacity" : "50 ",
+        "Background": "../assets/Ronaldo.png"
+    },
+    {
+        "SectorName" : "Amarelo",
+        "NameRoom" : "Ronaldinho",
+        "Capacity" : "50 ",
+        "Background": "../assets/Cafu.png"
+    },
+    {
+        "SectorName" : "Rosa",
+        "NameRoom" : "Ronaldo",
+        "Capacity" : "50 ",
+        "Background": "../assets/Ronaldo.png"
+    },
+    {
+        "SectorName" : "Roxo",
+        "NameRoom" : "Roberto Carlos",
+        "Capacity" : "50 ",
+        "Background": "../assets/Cafu.png"
+    },
+    {
+        "SectorName" : "Verde",
+        "NameRoom" : "Neymar",
+        "Capacity" : "50 ",
+        "Background": "../assets/Cafu.png"
+    }
+]

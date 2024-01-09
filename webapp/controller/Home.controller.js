@@ -10,6 +10,12 @@ sap.ui.define([
         return Controller.extend("com.lab2dev.btpexperience.controller.Home", {
             onInit: function () {
                 
+            },
+
+            onNavTo: function() {
+                const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+
+                oRouter.navTo("InfoSector");
             }
         });
     });
