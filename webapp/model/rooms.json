@@ -30,13 +30,13 @@
         "Background": "../assets/Ronaldo.png"
     },
     {
-        "SectorName" : "Preto",
+        "SectorName" : "Azul",
         "NameRoom" : "Pelé",
         "Capacity" : "50 ",
         "Background": "../assets/Cafu.png"
     },
     {
-        "SectorName" : "Rosa",
+        "SectorName" : "Preto",
         "NameRoom" : "Ronaldo",
         "Capacity" : "50 ",
         "Background": "../assets/Ronaldo.png"

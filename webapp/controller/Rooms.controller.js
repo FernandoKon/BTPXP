@@ -120,12 +120,12 @@ sap.ui.define([
             onOpenAddRoomDialog: function () {
                 if (!this.sDialog) {
                     this.sDialog = sap.ui.xmlfragment(
+                        this.getView().getId(),
                         "com.lab2dev.btpexperience.view.fragments.AddRoom",
                         this
                     );
                     this.getView().addDependent(this.sDialog);
                 }
-
                 this.sDialog.open();
             },
 
@@ -187,8 +187,8 @@ sap.ui.define([
                 oBinding.filter([]);
             },
 
-            navToRoomDetail: function () {
-                console.log("Chamou")
-            }
+            navToRoomDetail: function (oEvent) {
+                console.log("Chamou: " + oSelectedItem.getTitle());
+            },
         });
     });

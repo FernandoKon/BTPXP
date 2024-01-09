@@ -36,6 +36,7 @@ sap.ui.define([
             onOpenAddRoomDialog: function () {
                 if (!this.sDialog) {
                     this.sDialog = sap.ui.xmlfragment(
+                        this.getView().getId(),
                         "com.lab2dev.btpexperience.view.fragments.AddRoom",
                         this
                     );

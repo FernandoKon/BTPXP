@@ -9,7 +9,7 @@
     xmlns:f="sap.f"
     height="100%"
     >
-    <Page id="Eventos" showHeader="false" class= "sapUiResponsivePadding ">
+    <Page id="Eventos" showHeader="false" class= "sapUiResponsivePadding">
 
         <IconTabBar
 			id="iconTabBar"
@@ -30,7 +30,7 @@
         <HeaderContainer class="sapUiMediumMarginBegin sapUiResponsivePadding sapUiContentPadding">
             <VBox>
                 <Title text="Evento " class="sapUiTinyMarginTopBottom textBold" titleStyle="H3"/>
-                <Title text="Informações > Visitor Guide > Setor {sector>/Name}" titleStyle="H4"/>
+                <Title text="Informações > Visitor Guide > Setor {sector>/Name}" titleStyle="H4" class="sapUiTinyMarginTop"/>
             </VBox>
         </HeaderContainer>
 
@@ -42,43 +42,46 @@
                         <form:SimpleForm width="200px">
                             <form:content>
                                 <core:Title text="Setor {sector>/Name}"/>
-                                <HBox >
+                                <HBox class="sapUiTinyMarginTop">
                                     <core:Icon src="sap-icon://meeting-room" class="sapUiTinyMarginEnd"/>
-                                    <Label text="Quantidade de salas" wrapping="true"/>
+                                    <Label text="Quantidade de salas" wrapping="true" />
                                 </HBox>
-                                <Text text="{sector>/QRooms}" wrapping="true"/>
+                                <Text text="{sector>/QRooms}" wrapping="true" class="sapUiSmallMarginBottom"/>
                                 <HBox>
                                     <core:Icon src="sap-icon://customer-and-supplier" class="sapUiTinyMarginEnd"/>
                                     <Label text="Andar" wrapping="true"/>
                                 </HBox>
-                                <ObjectAttribute text="{
-                                    path: 'sector>/Floor', 
-                                    formatter: '.formatter.getFloorText'
-                                    }"/>
+                                <ObjectAttribute 
+                                    class="sapUiSmallMarginBottom"
+                                    text="{
+                                        path: 'sector>/Floor', 
+                                        formatter: '.formatter.getFloorText'
+                                        }"/>
                             </form:content>
                         </form:SimpleForm>
                     
-                        <form:SimpleForm width="375px">
+                        <form:SimpleForm width="60%" layout="ResponsiveGridLayout">
                             <form:content>
                                 <core:Title text="Descrição"/>
-                                <Text text="{sector>/Description} " wrapping="true"/>
+                                <Text text="{sector>/Description} " wrapping="true" class="sapUiTinyMarginTop"/>
                             </form:content>
                         </form:SimpleForm>
                     </FlexBox>
-                    <Button type="Emphasized" text="Editar Dados" class="sapUiSmallMargin" press="onOpenDialog"/>
+                    <Button type="Emphasized" text="Editar Dados" class="sapUiSmallMargin sapUiContentPadding" press="onOpenDialog"/>
                 </HBox>
             </main:Card>
         </Panel>
 
         <content>
-            <VBox class="sapUiResponsiveContentPadding sapUiResponsivePadding sapUiTinyMarginBeginEnd">
+            <VBox class="sapUiResponsiveContentPadding sapUiResponsivePadding sapUiTinyMarginBeginEnd sapUiSmallMarginTop">
                 <Title text="Salas desse setor" titleStyle="H4" class="sapUiMediumMarginBegin"/>
                 <Panel width="auto" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding sapUiContentPadding">
                     <f:GridList
                         id="gridList"
-                        items="{sector>/Rooms}">
+                        items="{sector>/Rooms}"
+                        >
                         <f:customLayout>
-                            <grid:GridResponsiveLayout layoutChange="onLayoutChange">
+                            <grid:GridResponsiveLayout>
                                 <grid:layoutS>
                                     <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 8rem)" gridTemplateRows="repeat(auto-fit, 200px)" gridGap="0.25rem 0.25rem" />
                                 </grid:layoutS>
@@ -89,12 +92,12 @@
                                     <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 16rem)" gridTemplateRows="repeat(auto-fit, 165px)" gridGap="0.75rem 0.75rem" />
                                 </grid:layoutL>
                                 <grid:layoutXL>
-                                    <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 18rem)" gridTemplateRows="repeat(auto-fit, 170px)" gridGap="1rem 1rem" />
+                                    <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 18rem)" gridTemplateRows="repeat(auto-fit, 170px)" gridGap="1.875rem 0.9375rem" />
                                 </grid:layoutXL>
                             </grid:GridResponsiveLayout>
                         </f:customLayout>
-                        <f:GridListItem>
-                            <VBox>
+                        <f:GridListItem> 
+                            <VBox class="sapUiContentPadding sapUiSmallMarginBottom">
                                 <layoutData>
                                     <FlexItemData growFactor="1" shrinkFactor="0" /> 
                                 </layoutData>

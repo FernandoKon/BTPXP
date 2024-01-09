@@ -3,7 +3,7 @@
     "Name": "Rosa",
     "QRooms" : "3",
     "Floor": "3",
-    "Description" : "Setor no primeiro andar, com três salas, dois banheiros, e elevadores que se encontram ao lado do prédio ",
+    "Description" : "Setor no primeiro andar, com três salas, dois banheiros e elevadores que se encontram ao lado do prédio ",
     "Logo" : "../assets/rosa.png",
     "Rooms" : [
         {

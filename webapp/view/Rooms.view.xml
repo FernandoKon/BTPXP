@@ -75,7 +75,9 @@
             <Panel width="auto" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding sapUiResponsivePadding sapUiTinyMarginBegin">
                 <f:GridList
                     id="gridListRooms"
-                    items="{rooms>/}">
+                    items="{rooms>/}"
+                    itemPress="navToRoomDetail"
+                    >
                     <f:customLayout>
                         <grid:GridResponsiveLayout layoutChange="onLayoutChange">
                             <grid:layoutS>
@@ -88,13 +90,13 @@
                                 <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 16rem)" gridTemplateRows="repeat(auto-fit, 165px)" gridGap="0.75rem 0.75rem" />
                             </grid:layoutL>
                             <grid:layoutXL>
-                                <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 18rem)" gridTemplateRows="repeat(auto-fit, 170px)" gridGap="1rem 1rem" />
+                                <grid:GridSettings gridTemplateColumns="repeat(auto-fit, 18rem)" gridTemplateRows="repeat(auto-fit, 170px)" gridGap="1.875rem 0.9375rem" />
                             </grid:layoutXL>
                         </grid:GridResponsiveLayout>
                     </f:customLayout
                     >
-                    <f:GridListItem>
-                        <VBox class="sapUiContentPadding">
+                    <f:GridListItem >
+                        <VBox class="sapUiContentPadding sapUiSmallMarginBottom">
                             <layoutData>
                                 <FlexItemData growFactor="1" shrinkFactor="0" /> 
                             </layoutData>
