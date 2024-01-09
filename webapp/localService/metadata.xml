@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Events" EntityType="CatalogService.Events"/>
+                <EntitySet Name="Event_Services" EntityType="CatalogService.Event_Services">
+                    <NavigationPropertyBinding Path="event" Target="Events"/>
+                </EntitySet>
+                <EntitySet Name="Access_Groups" EntityType="CatalogService.Access_Groups"/>
+                <EntitySet Name="Companies" EntityType="CatalogService.Companies">
+                    <NavigationPropertyBinding Path="sponsorships" Target="Sponsorships"/>
+                </EntitySet>
+                <EntitySet Name="Users" EntityType="CatalogService.Users">
+                    <NavigationPropertyBinding Path="accessGroup" Target="Access_Groups"/>
+                    <NavigationPropertyBinding Path="company" Target="Companies"/>
+                </EntitySet>
+                <EntitySet Name="Messages" EntityType="CatalogService.Messages">
+                    <NavigationPropertyBinding Path="senderID" Target="Users"/>
+                    <NavigationPropertyBinding Path="receiverID" Target="Users"/>
+                </EntitySet>
+                <EntitySet Name="Stands" EntityType="CatalogService.Stands"/>
+                <EntitySet Name="Sponsorships" EntityType="CatalogService.Sponsorships">
+                    <NavigationPropertyBinding Path="accessGroup" Target="Access_Groups"/>
+                    <NavigationPropertyBinding Path="stands" Target="Stands"/>
+                </EntitySet>
+                <EntitySet Name="Company_Sponsorship" EntityType="CatalogService.Company_Sponsorship">
+                    <NavigationPropertyBinding Path="sponsorships" Target="Sponsorships"/>
+                    <NavigationPropertyBinding Path="company" Target="Companies"/>
+                </EntitySet>
+                <EntitySet Name="Section_Types" EntityType="CatalogService.Section_Types"/>
+                <EntitySet Name="User_Sections" EntityType="CatalogService.User_Sections">
+                    <NavigationPropertyBinding Path="sections" Target="Sections"/>
+                </EntitySet>
+                <EntitySet Name="User_Feedback" EntityType="CatalogService.User_Feedback">
+                    <NavigationPropertyBinding Path="userSections" Target="User_Sections"/>
+                </EntitySet>
+                <EntitySet Name="Sectors" EntityType="CatalogService.Sectors">
+                    <NavigationPropertyBinding Path="rooms" Target="Rooms"/>
+                </EntitySet>
+                <EntitySet Name="Rooms" EntityType="CatalogService.Rooms">
+                    <NavigationPropertyBinding Path="sectors" Target="Sectors"/>
+                </EntitySet>
+                <EntitySet Name="Sections" EntityType="CatalogService.Sections">
+                    <NavigationPropertyBinding Path="rooms" Target="Rooms"/>
+                    <NavigationPropertyBinding Path="sectionTypeId" Target="Section_Types"/>
+                    <NavigationPropertyBinding Path="users" Target="Users"/>
+                </EntitySet>
+                <EntitySet Name="SectorsAndRooms" EntityType="CatalogService.SectorsAndRooms"/>
+            </EntityContainer>
+            <EntityType Name="Events">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="description" Type="Edm.String"/>
+                <Property Name="event_picture" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Event_Services">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="description" Type="Edm.String"/>
+                <Property Name="event_id" Type="Edm.String"/>
+                <NavigationProperty Name="event" Type="CatalogService.Events"/>
+            </EntityType>
+            <EntityType Name="Access_Groups">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Companies">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="initial_sponsorship_id" Type="Edm.String"/>
+                <Property Name="company_name" Type="Edm.String"/>
+                <Property Name="trading_name" Type="Edm.String"/>
+                <Property Name="cnpj" Type="Edm.String"/>
+                <Property Name="state" Type="Edm.String"/>
+                <Property Name="email" Type="Edm.String"/>
+                <Property Name="website" Type="Edm.String"/>
+                <Property Name="logo" Type="Edm.String"/>
+                <Property Name="is_main_sponsor" Type="Edm.Boolean"/>
+                <Property Name="created_on" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="approved_on" Type="Edm.DateTimeOffset" Precision="7"/>
+                <NavigationProperty Name="sponsorships" Type="CatalogService.Sponsorships"/>
+            </EntityType>
+            <EntityType Name="Users">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="access_group_id" Type="Edm.String"/>
+                <Property Name="company_id" Type="Edm.String"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="cpf" Type="Edm.String"/>
+                <Property Name="role" Type="Edm.String"/>
+                <Property Name="email" Type="Edm.String"/>
+                <Property Name="phone" Type="Edm.String"/>
+                <Property Name="is_approved" Type="Edm.Boolean" DefaultValue="false"/>
+                <Property Name="portfolio" Type="Edm.String"/>
+                <Property Name="website" Type="Edm.String"/>
+                <Property Name="user_photo" Type="Edm.String"/>
+                <Property Name="created_on" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="approved_on" Type="Edm.DateTimeOffset" Precision="7"/>
+                <NavigationProperty Name="accessGroup" Type="CatalogService.Access_Groups"/>
+                <NavigationProperty Name="company" Type="CatalogService.Companies"/>
+            </EntityType>
+            <EntityType Name="Messages">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="sender_id" Type="Edm.String"/>
+                <Property Name="receiver_id" Type="Edm.String"/>
+                <Property Name="text" Type="Edm.String"/>
+                <Property Name="send_date" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="receipt_date" Type="Edm.DateTimeOffset" Precision="7"/>
+                <NavigationProperty Name="senderID" Type="CatalogService.Users"/>
+                <NavigationProperty Name="receiverID" Type="CatalogService.Users"/>
+            </EntityType>
+            <EntityType Name="Stands">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Sponsorships">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="stand_id" Type="Edm.String"/>
+                <Property Name="access_group_id" Type="Edm.String"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="price" Type="Edm.Decimal" Scale="variable"/>
+                <Property Name="invites" Type="Edm.Int32"/>
+                <NavigationProperty Name="accessGroup" Type="CatalogService.Access_Groups"/>
+                <NavigationProperty Name="stands" Type="CatalogService.Stands"/>
+            </EntityType>
+            <EntityType Name="Company_Sponsorship">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="sponsorship_id" Type="Edm.String"/>
+                <Property Name="company_id" Type="Edm.String"/>
+                <NavigationProperty Name="sponsorships" Type="CatalogService.Sponsorships"/>
+                <NavigationProperty Name="company" Type="CatalogService.Companies"/>
+            </EntityType>
+            <EntityType Name="Section_Types">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="User_Sections">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="user_id" Type="Edm.String"/>
+                <Property Name="section_id" Type="Edm.String"/>
+                <Property Name="check_in_date" Type="Edm.DateTimeOffset" Precision="7"/>
+                <NavigationProperty Name="sections" Type="CatalogService.Sections"/>
+            </EntityType>
+            <EntityType Name="User_Feedback">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="user_section_id" Type="Edm.String"/>
+                <Property Name="date" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="stars" Type="Edm.Decimal" Scale="variable"/>
+                <Property Name="comment" Type="Edm.String"/>
+                <NavigationProperty Name="userSections" Type="CatalogService.User_Sections"/>
+            </EntityType>
+            <EntityType Name="Sectors">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="floor" Type="Edm.Int32"/>
+                <Property Name="color" Type="Edm.String"/>
+                <Property Name="color_name" Type="Edm.String"/>
+                <Property Name="description" Type="Edm.String"/>
+                <NavigationProperty Name="rooms" Type="Collection(CatalogService.Rooms)"/>
+                <Property Name="rooms_ID" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="Rooms">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="sector_id" Type="Edm.String"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="capacity" Type="Edm.Int32"/>
+                <Property Name="description" Type="Edm.String"/>
+                <Property Name="curiosity" Type="Edm.String"/>
+                <NavigationProperty Name="sectors" Type="CatalogService.Sectors"/>
+            </EntityType>
+            <EntityType Name="Sections">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="room_id" Type="Edm.String"/>
+                <Property Name="section_type_id" Type="Edm.String"/>
+                <Property Name="responsable_id" Type="Edm.String"/>
+                <Property Name="responsable_is_company" Type="Edm.Boolean"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="start_date" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="end_date" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="links" Type="Collection(Edm.String)" Nullable="false"/>
+                <NavigationProperty Name="rooms" Type="CatalogService.Rooms"/>
+                <NavigationProperty Name="sectionTypeId" Type="CatalogService.Section_Types"/>
+                <NavigationProperty Name="users" Type="CatalogService.Users"/>
+            </EntityType>
+            <EntityType Name="SectorsAndRooms">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="sector_id" Type="Edm.String"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="capacity" Type="Edm.Int32"/>
+                <Property Name="description" Type="Edm.String"/>
+                <Property Name="curiosity" Type="Edm.String"/>
+                <Property Name="sectors" Type="Edm.Guid"/>
+            </EntityType>
+            <Annotations Target="CatalogService.Events/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Event_Services/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Access_Groups/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Companies/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Users/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Messages/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Stands/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Sponsorships/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Company_Sponsorship/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Section_Types/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.User_Sections/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.User_Feedback/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Sectors/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Rooms/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Sections/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EntityContainer/SectorsAndRooms">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CatalogService.SectorsAndRooms/ID">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
