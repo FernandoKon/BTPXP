@@ -132,6 +132,13 @@
           "target": [
             "TargetRooms"
           ]
+        },
+        {
+          "name": "SectionDetail",
+          "pattern": "SectionDetail",
+          "target": [
+            "TargetSectionDetail"
+          ]
         }
       ],
       "targets": {
@@ -155,6 +162,13 @@
           "clearControlAggregation": false,
           "viewId": "Rooms",
           "viewName": "Rooms"
+        },
+        "TargetSectionDetail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "SectionDetail",
+          "viewName": "SectionDetail"
         }
       }
     },

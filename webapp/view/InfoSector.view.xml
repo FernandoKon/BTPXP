@@ -9,7 +9,7 @@
     xmlns:f="sap.f"
     height="100%"
     >
-    <Page id="Eventos" showHeader="false" class= "sapUiResponsivePadding">
+    <Page id="InfoSector" showHeader="false" class= "sapUiResponsivePadding">
 
         <IconTabBar
 			id="iconTabBar"
@@ -46,7 +46,7 @@
                                     <core:Icon src="sap-icon://meeting-room" class="sapUiTinyMarginEnd"/>
                                     <Label text="Quantidade de salas" wrapping="true" />
                                 </HBox>
-                                <Text text="{sector>/QRooms}" wrapping="true" class="sapUiSmallMarginBottom"/>
+                                <ObjectAttribute text="{sector>/QRooms}" class="sapUiSmallMarginBottom"/>
                                 <HBox>
                                     <core:Icon src="sap-icon://customer-and-supplier" class="sapUiTinyMarginEnd"/>
                                     <Label text="Andar" wrapping="true"/>
@@ -63,7 +63,7 @@
                         <form:SimpleForm width="60%" layout="ResponsiveGridLayout">
                             <form:content>
                                 <core:Title text="Descrição"/>
-                                <Text text="{sector>/Description} " wrapping="true" class="sapUiTinyMarginTop"/>
+                                <ObjectAttribute text="{sector>/Description}" class="sapUiTinyMarginTop"/>
                             </form:content>
                         </form:SimpleForm>
                     </FlexBox>

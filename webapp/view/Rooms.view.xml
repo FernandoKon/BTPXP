@@ -6,7 +6,7 @@
     xmlns:grid="sap.ui.layout.cssgrid"
     xmlns:f="sap.f"
     >
-    <Page id="Salas" showHeader="false" class= "sapUiResponsivePadding" >
+    <Page id="Rooms" showHeader="false" class= "sapUiResponsivePadding" >
         <HeaderContainer class="sapUiMediumMarginBegin sapUiResponsivePadding sapUiContentPadding">
             <VBox>
                 <Title text="Salas " class="sapUiSmallMarginTop textBold" titleStyle="H3"/>

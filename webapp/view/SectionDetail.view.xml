@@ -1,0 +1,77 @@
+<mvc:View controllerName="com.lab2dev.btpexperience.controller.SectionDetail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:main="sap.ui.webc.main"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+    <Page id="SectionDetail" title="{i18n>title}" showHeader="false">
+        <HeaderContainer class="sapUiMediumMarginBegin sapUiResponsivePadding sapUiContentPadding">
+            <VBox>
+                <Title text="Sessões " class="sapUiTinyMarginTopBottom textBold" titleStyle="H3"/>
+                <Title text="Detalhe" titleStyle="H4" class="sapUiTinyMarginTop"/>
+            </VBox>
+        </HeaderContainer>
+
+        <Panel width="auto" backgroundDesign="Transparent" class="sapUiResponsiveContentPadding sapUiResponsivePadding sapUiTinyMarginBeginEnd">
+            <main:Card>
+                <HBox >
+                    <HBox>
+                        <VBox>
+                            <form:SimpleForm>
+                                <form:content>
+                                    <Title text="OnBoarding - SAP BTP Experience 2024" class="textBold"/>
+                                    <main:Badge text="CONCLUÍDO" colorScheme="10" class="customBadge"/>
+                                    <RatingIndicator maxValue="5" value="5" tooltip="Rating Tooltip" />
+                                    <Label text="ID" wrapping="true" />
+                                    <ObjectAttribute text="12345678" class="sapUiTinyMarginBottom"/>
+                                    <Label text="Data e hora" wrapping="true" />
+                                    <ObjectAttribute text="11/11/2024 - 9h30"  class="sapUiTinyMarginBottom"/>
+                                    <Label text="Responsável" wrapping="true" />
+                                    <ObjectAttribute text="SAP Brasil"/>
+                                </form:content>
+                            </form:SimpleForm>
+                        </VBox>
+                        <VBox class="sapUiTinyMarginTop" width="50%">
+                            <form:SimpleForm>
+                                <form:content>
+                                    <Title text="Sobre o evento" titleStyle="H6" class="sapUiTinyMarginBottom"/>
+                                    <Label text="Tipo do Evento" wrapping="true" />
+                                    <ObjectAttribute text="Onboarding" />
+                                    <Label text="Descrição" wrapping="true" />
+                                    <ObjectAttribute text="O onboarding é apenas o ponto de partida para descobrir os detalhes do evento, conectar às inovações mais recentes e ficar à frente das tendências."/>
+                                </form:content>
+                            </form:SimpleForm>
+                        </VBox>
+                        <VBox class="sapUiTinyMarginTop">
+                            <form:SimpleForm>
+                                <form:content>
+                                    <Title text="Localização" titleStyle="H6" class="sapUiTinyMarginBottom"/>
+                                    <Label text="Sala" wrapping="true" />
+                                    <ObjectAttribute text="200001353" />
+                                    <Label text="Setor" wrapping="true" />
+                                    <ObjectAttribute text="Rosa"/>
+                                </form:content>
+                            </form:SimpleForm>
+                        </VBox>
+                        <VBox class="sapUiTinyMarginTop">
+                            <form:SimpleForm>
+                                <form:content>
+                                    <Title text="Links úteis" titleStyle="H6" class="sapUiSmallMarginBottom"/>
+                                    <Link text="www.respositório.com"/>
+                                    <Link text="www.abc.com"/>
+                                    <Link text="www.xyz.com"/>
+                                    <Link text="www.link.com"/>
+                                </form:content>
+                            </form:SimpleForm>
+                        </VBox>
+                    </HBox>
+                    <VBox class="sapUiSmallMargin" alignItems="End">
+                        <Button text="Baixar respositório do evento" type="Emphasized" icon="sap-icon://download" iconFirst="false"/>
+                        <Button text="Editar dados" type="Emphasized" class="sapUiSmallMarginTop"/>
+                    </VBox>
+                </HBox>
+            </main:Card>
+        </Panel>
+    </Page>
+</mvc:View>
